@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form name="formCal">
+        <caption> Translate </caption>
+        <br>
+        <br>
+        <input type="text" id="input_en"/>
+        <input type="button" value = "TRANSLATE" onclick = "trans()" />
+        <br>
+        <br>
+        <div id = "output_vns"/>
+
+    </form>
+    <script>
+        var arr_in = ["Hello","apple","banana","air","answer","ant","bridge","circle","door","end"];
+        var arr_out = ["Xin Chào","Quả Táo","Quả Chuối","Không khí","Câu hỏi","Con kiến","Cây cầu","Vòng tròn","Cánh cửa","Kết thúc"];
+
+        function trans() {
+            var input_en = document.getElementById("input_en").value;
+            console.log(input_en);
+            var len = arr_in.length;
+            for(i=0;i<len;i++){
+                console.log(arr_in[i]+" "+input_en);
+                if (arr_in[i].localeCompare(input_en, undefined, { sensitivity: 'base' }) === 0) {
+                    document.getElementById("output_vns").innerHTML = arr_out[i];
+                    return;
+                }
+            }
+            alert("Không tìm thấy từ trong từ điển. Mời nhập lại!");
+        }
+    </script>
+
+</body>
+</html>
